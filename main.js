@@ -9,17 +9,17 @@ keys.forEach(function (key) {
 //change the color of the keys
 function keyPlay(event) {
     const rainbowColors = [
-        "#ff3939", 
-        "#ff8b38", 
+        "#ff3939",
+        "#ff8b38",
         "#ffcb6a",
         "#34ad34",
-        "#59a1e4", 
-        "#8f49c1", 
+        "#59a1e4",
+        "#8f49c1",
         "#d663cb",
-        "#ec85b9", 
+        "#ec85b9",
         "#f6ad4d",
         "#f1be47",
-        "#59e4bd", 
+        "#59e4bd",
         "#495fc1",
         "#b763d6",
     ];
@@ -61,13 +61,46 @@ nextTwo.hidden = true;
 nextThree.hidden = true;
 startOver.hidden = true;
 
-// Write anonymous event handler property and function for the first progress button
-
+// // Write anonymous event handler property and function for the first progress button
+const unhideTwo = function () {
+    document.getElementById('letter-note-five').innerHTML = 'D';
+    document.getElementById('letter-note-six').innerHTML = 'C';
+    nextOne.hidden = true;
+    nextTwo.hidden = false;
+}
+nextOne.onclick = unhideTwo;
 
 // Write anonymous event handler property and function for the second progress button
-
-
+const unhideThree = function () {
+    document.getElementById('word-five').innerHTML = 'DEAR';
+    document.getElementById('word-six').innerHTML = 'FRI-';
+    lastLyric.style.display = 'inline-block';
+    document.getElementById('letter-note-three').innerHTML = 'E';
+    document.getElementById('letter-note-four').innerHTML = 'C';
+    document.getElementById('letter-note-five').innerHTML = 'C';
+    document.getElementById('letter-note-six').innerHTML = 'B';
+    nextTwo.hidden = true;
+    nextThree.hidden = false;
+}
+nextTwo.onclick = unhideThree;
 // Write anonymous event handler property and function for the third progress button
+const unhideLast = function () {
+    nextThree.hidden = true;
+    startOver.hidden = false;
+
+    document.getElementById('word-five').innerHTML = 'TO';
+    document.getElementById('word-six').innerHTML = 'YOU';
+    lastLyric.style.display = 'none';
+
+    ('letter-note-one').innerHTML = 'F';
+    document.getElementById('letter-note-two').innerHTML = 'F';
+    ('letter-note-three').innerHTML = 'E';
+    document.getElementById('letter-note-four').innerHTML = 'C';
+    document.getElementById('letter-note-five').innerHTML = 'D';
+    document.getElementById('letter-note-six').innerHTML = 'C';
+}
+
+nextThree.onclick = unhideLast;
 
 
 // This is the event handler property and function for the startOver button
